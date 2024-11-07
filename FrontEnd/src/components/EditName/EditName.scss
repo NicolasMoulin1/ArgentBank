@@ -1,0 +1,89 @@
+// Variables de couleurs pour une personnalisation rapide
+$editable-color: #4caf50;
+$editable-bg-color: #ffffff;
+$readonly-bg-color: silver;
+$readonly-text-color: #888888;
+$button-cancel-bg-color: #d9534f;
+$button-cancel-text-color: white;
+$button-save-bg-color: $editable-color;
+$button-save-text-color: #ffffff;
+$border-radius: 4px;
+
+// style du bouton Edit Name
+.edit-name-container {
+  button {
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: $border-radius;
+  }
+}
+
+// Style principal du formulaire
+.edit-name-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+
+  // Style de chaque ligne du formulaire
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  // Style des labels
+  label {
+    flex: 1;
+    font-weight: bold;
+  }
+
+  // Style des champs de saisie
+  input {
+    flex: 2;
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: $border-radius;
+    background-color: $editable-bg-color;
+
+    // Style pour les champs en lecture seule
+    &[readonly] {
+      background-color: $readonly-bg-color;
+      color: $readonly-text-color;
+      border: 1px solid #cccccc;
+      cursor: not-allowed;
+    }
+  }
+
+  // Style des boutons
+  button {
+    padding: 10px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: $border-radius;
+
+    // Bouton de sauvegarde
+    &[type="submit"] {
+      background-color: $button-save-bg-color;
+      color: $button-save-text-color;
+      border: none;
+    }
+
+    // Bouton d'annulation
+    &[type="button"] {
+      background-color: $button-cancel-bg-color;
+      color: $button-cancel-text-color;
+      border: none;
+    }
+  }
+
+  // Style du message de succès
+  p {
+    color: $editable-color;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+}
