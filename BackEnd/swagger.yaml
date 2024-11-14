@@ -102,7 +102,7 @@ paths:
         '500':
           description: Internal Server Error
 
-//---------------------------------------- New Routes ----------------------------------------//
+
 
     /acounts/{accountId}/transactions:
       get:
@@ -138,7 +138,7 @@ paths:
         security:
           - Bearer: []
         tags:
-          - Transaction Module
+          - Transaction Moudle
         summary: Get Transaction Detail
         description: API for fetching details of a specific transaction
         parameters:
@@ -282,7 +282,7 @@ definitions:
       userName:
         type: string
 
-//---------------------------------------- New Routes definitions ----------------------------------------//
+
 
   TransactionsResponse:
     type: object
