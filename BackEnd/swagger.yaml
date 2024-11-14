@@ -123,7 +123,7 @@ paths:
         responses:
           '200':
             description: Transactions retrieved successfully
-            shema: 
+            schema: 
               $ref:'#/definitions/TransactionsResponse'
           '400':
             description: invalid Fields
@@ -138,7 +138,7 @@ paths:
         security:
           - Bearer: []
         tags:
-          - Transaction Moudle
+          - Transaction Module
         summary: Get Transaction Detail
         description: API for fetching details of a specific transaction
         parameters:
@@ -152,7 +152,7 @@ paths:
         responses:
           '200':
             description: Transaction details retrieved successfully
-            shema:
+            schema:
               $ref: '#definitions/Transaction'
           '400':
             description: Invalid Fields
@@ -178,7 +178,7 @@ paths:
           - in: body
             required: true
             description: Update transaction payload
-            shema:
+            schema:
               $ref: '#/definitions/TransactionUpdate'
         produces:
           - application/json
@@ -211,7 +211,7 @@ paths:
             name: body
             required: true
             description: Delete transaction payload
-            shema:
+            schema:
               $ref: '#definitions/TransactionUpdate'
         produces:
           - application/json
