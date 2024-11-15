@@ -182,6 +182,8 @@ paths:
       responses:
         '200':
           description: Transaction updated successfully
+          schema:
+            $ref: '#/definitions/Transaction'
         '400':
           description: Invalid Fields
         '401':
