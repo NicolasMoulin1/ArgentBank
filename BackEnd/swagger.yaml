@@ -190,39 +190,6 @@ paths:
           description: Not found - the requested resource could not be found
         '500':
           description: Internal Server Error
-  /transactions/{transactionId}/info:
-    delete:
-      security:
-        - Bearer: []
-      tags: 
-        - Transaction Module
-      summary: Delete Transaction Info
-      description: API for deleting the category and note of a specific transaction
-      parameters:
-        - in: path
-          name: transactionId
-          required: true
-          type: string
-          description: the ID of the transaction to delete info from
-        - in: body
-          name: body
-          required: true
-          description: Delete transaction payload
-          schema:
-            $ref: '#/definitions/TransactionUpdate'
-      produces:
-        - application/json
-      responses:
-        '200':
-          description: Transaction info deleted successfully
-        '400':
-          description: Invalid Fields
-        '401':
-          description: Unauthorized - Authentication is required and has failed
-        '404':
-          description: Not found - the requested resource could not be found
-        '500':
-          description: Internal Server Error
 securityDefinitions:
   Bearer:
     type: apiKey

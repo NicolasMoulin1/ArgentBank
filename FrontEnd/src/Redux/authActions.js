@@ -5,13 +5,6 @@ import {
   loginFailure,
 } from "../Redux/authSlice";
 
-export const checkAuthOnPageLoad = () => async (dispatch) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    dispatch(loginSuccess({ token }));
-    dispatch(fetchUserProfile(token));
-  }
-};
 
 export const login = (credential) => async (dispatch) => {
   dispatch(loginStart());
@@ -23,15 +16,10 @@ export const login = (credential) => async (dispatch) => {
       },
       body: JSON.stringify(credential),
     });
-
     const data = await response.json();
-    console.log("Données API après login:", data); // Vérifie la réponse API complète
-
     if (response.ok) {
       if (data.body && data.body.token) {
         const token = data.body.token;
-        console.log("Token reçu:", token); // Vérifie la valeur du token
-
         // Stocke le token dans le state et dans le localStorage
         localStorage.setItem("token", token); // Sauvegarde du token dans le localStorage
 
@@ -41,7 +29,6 @@ export const login = (credential) => async (dispatch) => {
         // Récupère le profil utilisateur après le login
         dispatch(fetchUserProfile(token)); // Appelle l'action pour récupérer le profil
       } else {
-        console.error("Le token n'est pas disponible dans la réponse API");
         dispatch(loginFailure("Le token est manquant"));
       }
     } else {
@@ -51,6 +38,15 @@ export const login = (credential) => async (dispatch) => {
     dispatch(loginFailure(error.message));
   }
 };
+
+export const checkAuthOnPageLoad = () => async (dispatch) => {
+  const token = localStorage.getItem("token");
+  if (token) {
+    dispatch(loginSuccess({ token }));
+    dispatch(fetchUserProfile(token));
+  }
+};
+
 // **NOUVELLE ACTION** pour récupérer le profil utilisateur
 
 export const fetchUserProfile = (token) => async (dispatch) => {
@@ -64,8 +60,6 @@ export const fetchUserProfile = (token) => async (dispatch) => {
     });
 
     const data = await response.json();
-    console.log("Response Status:", response.status); // Log du statut de réponse
-    console.log("Response Data:", data); // Log des données reçues
 
     if (response.ok) {
       if (data.body) {

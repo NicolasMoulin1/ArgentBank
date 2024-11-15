@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUserProfile } from "./authActions";
 
 // Récupérer le token depuis localStorage s'il existe
 const tokenFromStorage = localStorage.getItem("token") || null;
