@@ -30,8 +30,6 @@ const EditName = () => {
     }
     setErrorMessage("");
 
-    console.log("Nom à mettre à jour:", newName);
-
     // Appelle l'action de mise à jour
     await dispatch(updateUserName(newName));
 

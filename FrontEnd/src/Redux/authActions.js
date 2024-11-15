@@ -89,10 +89,8 @@ export const updateUserName = (newName) => async (dispatch, getState) => {
     });
 
     const data = await response.json();
-    console.log("Réponse du serveur:", data); // Affiche la réponse pour vérifier les données reçues
     if (response.ok && data.body) {
       dispatch(infoUser({ profile: { ...data.body } }));
-      console.log("Profil mis à jour dans Redux:", data.body);
     } else {
       console.error(
         "Erreur dans la mise à jour:",

@@ -8,16 +8,10 @@ const Navigation = () => {
   const loginStore = useSelector((state) => state.login);
   const token = useSelector((state) => state.auth.token);
   if (token) {
-    console.log(
-      "le token est présent dans le store donc je change Sign In en Sign Out",
-      token
-    );
   } else {
-    console.log("le token n'est pas présent donc je laisse Sign In");
   }
   const handleRedirectHome = () => {
     localStorage.removeItem("token");
-    console.log("token suprimé du localStorage");
     dispatch(logout());
   };
   return (
