@@ -1,4 +1,4 @@
-import backgroundImage from "../../assets/images/bank-tree.jpeg";
+import backgroundImage from "../../assets/images/bank-tree.webp";
 
 const BannerHome = () => {
   return (
