@@ -1,4 +1,4 @@
-import logoBanner from "../../assets/images/argentBankLogo.png";
+import logoBanner from "../../assets/images/argentBankLogo.webp";
 import { useSelector, useDispatch } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { logout } from "../../Redux/authSlice";
